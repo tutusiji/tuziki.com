@@ -1,0 +1,200 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>关于 | Tutu的个人记录</title>
+<link rel="shortcut icon" href="https://github.com/tutusiji/tutusiji.github.io.git/favicon.ico?v=1588651457740">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://github.com/tutusiji/tutusiji.github.io.git/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="关于 | Tutu的个人记录 - Atom Feed" href="https://github.com/tutusiji/tutusiji.github.io.git/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+欢迎来到我的小站呀，很高兴遇见你！🤝
+
+web前端开发工程师。
+🐧🐧: 123507356
+Python、MongoDB、MYSQL
+
+多终端开发：PC、移动端、微信小程序、webapp、Hybird app、响应式设计、无障碍设计..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://github.com/tutusiji/tutusiji.github.io.git">
+  <img class="avatar" src="https://github.com/tutusiji/tutusiji.github.io.git/images/avatar.png?v=1588651457740" alt="">
+  </a>
+  <h1 class="site-title">
+    Tutu的个人记录
+  </h1>
+  <p class="site-description">
+    2020 乘风破浪 负重前行
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          项目
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              关于
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-01-25
+              </span>
+              <span>
+                1 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <blockquote>
+<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
+</blockquote>
+<p>web前端开发工程师。<br>
+🐧🐧: 123507356</p>
+<!-- 
+### 专业能力
+
+UI开发能力：html5、css3、less、sass、bootstrap、svg、canvas；
+
+前端构建技术：gulp、swig、webpack、svn、git
+
+框架（库）技术：vue、react、jquery、TypeScript、es567、组件化
+
+服务端技术：Nodejs、Java、SQL、<del>Python、MongoDB、MYSQL</del>
+
+多终端开发：PC、移动端、微信小程序、webapp、Hybird app、响应式设计、无障碍设计、SEO优化
+
+较好的美术设计感、UI重构、动画创意设计与开发实现能力（css3、svg、apng、canvas、webgl）；
+
+较好的金融系统业务理解能力及后端管理系统开发能力；
+
+较好的用户体验设计与开发能力；
+
+
+### 工作经历
+
+湖北百度 => 企业OA系统及网站系统开发
+
+深圳思迪 => 金融账户及业务系统开发
+
+深圳腾讯 => 互娱游戏平台 & 用户研究系统 & AI工程化建设
+
+深圳平安 => 平安小微商户平台渠道系统开发，以及和一群可爱的人为人民写代码
+
+### 我的爱好
+乒乓球、羽毛球、以及众多的小球类运动，游泳爬山可还行，种花草，撸猫撩狗，打王者吃鸡。
+ -->
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+
+        
+
+        <div class="site-footer">
+  <a href="http://beian.miit.gov.cn/" target="_blank">粤ICP备14062482号</a>
+  <a class="rss" href="https://github.com/tutusiji/tutusiji.github.io.git/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
