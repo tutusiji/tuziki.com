@@ -9,14 +9,14 @@
   <meta name="keywords" content="">
   <meta name="description" content="">
   <meta name="author" content="kveln">
-  <title>常用指令集 | TUTU的个人记录</title>
+  <title>JS数组常用方法总结 some()、every()、find()、findIndex()、filter()、includes()、map()、fill() | TUTU的个人记录</title>
   <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <!-- <link href="https://www.tuziki.com/media/css/bootstrap.min.css" rel="stylesheet"> -->
   <!--  <link href="https://www.tuziki.com/media/css/all.min.css" rel="stylesheet" type="text/css"> -->
   <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-  <link rel="alternate" type="application/rss+xml" title="常用指令集 | TUTU的个人记录 » Feed" href="https://www.tuziki.com/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="JS数组常用方法总结 some()、every()、find()、findIndex()、filter()、includes()、map()、fill() | TUTU的个人记录 » Feed" href="https://www.tuziki.com/atom.xml">
   <link rel="stylesheet"href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
   <link href="https://www.tuziki.com/styles/main.css" rel="stylesheet">
   <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
@@ -25,8 +25,8 @@
   <script>hljs.initHighlightingOnLoad();</script>
   
 
-    <meta property="og:description" content="常用指令集"/>
-    <meta property="og:url" content="https://www.tuziki.com/chang-yong-zhi-ling-ji/"/>
+    <meta property="og:description" content="JS数组常用方法总结 some()、every()、find()、findIndex()、filter()、includes()、map()、fill()"/>
+    <meta property="og:url" content="https://www.tuziki.com/js-shu-zu-chang-yong-fang-fa-zong-jie-someeveryfindfindindexfilterincludesmapfill/"/>
     <meta property="og:locale" content="zh-CN"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="TUTU的个人记录"/>
@@ -86,11 +86,13 @@
           <div class="post-heading">
           	<span class="tags">
           	 
+            <a href="https://www.tuziki.com/AfdhbYEZH/" class="tag">数组</a>
+            
         </span>
-            <h1>常用指令集</h1>
+            <h1>JS数组常用方法总结 some()、every()、find()、findIndex()、filter()、includes()、map()、fill()</h1>
             <span class="meta">
             	Posted on
-              2019-05-05，1 min read
+              2020-05-05，1 min read
             </span>
           </div>
         </div>
@@ -103,17 +105,70 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-10 mx-auto">
-          <p>Mac管理员权限下发 sudo jamf -removeframework</p>
-<p>快速启动本地服务 python -m SimpleHTTPServer</p>
-<p>npm源切换   nrm ls、nrm test、nrm use taobao、nrm add、nrm del</p>
-<p>chrome解决http自动跳转https问题 chrome://net-internals/#hsts</p>
-<p>腾讯视频文件qlv转mp4文件 <code>copy/b *.tdl 1.mp4</code> 保存为qlv2mp4.bat 文件，在到qlv所在目录执行</p>
+          <blockquote>
+<p>some() 会遍历数组中第一个与条件符合的并返回true</p>
+</blockquote>
+<pre><code class="language-JavaScript">// 1. some使用 es6新增方法，和es5的数组forEach类似
+var data = [
+    { id: 1, name: 'wzj' },
+    { id: 2, name: 'zr' },
+    { id: 3, name: 'dxy' }
+];
+
+// 找出 id 为 2 的对象
+var result = data.some(function (value) {
+    // 若没有返回值，则会一直循环遍历，类似forEach
+    console.log(value);
+
+    return value.id == 2;
+});
+
+console.log(result);//true
+
+</code></pre>
+<blockquote>
+<p>find: 快速查找返回对象中匹配到key的item</p>
+</blockquote>
+<pre><code class="language-JavaScript">const dataItem = DataObject.find(item =&gt; item.key === &quot;keys&quot;)
+</code></pre>
+<blockquote>
+<p>find: 合并两个数组中的目标值</p>
+</blockquote>
+<pre><code>const listA =[{
+      id: 'a1',
+      type: 'yyy1'
+    },{
+      id: 'a2',
+      type: 'yyy2'
+    },{
+      id: 'a3',
+      type: 'yyy3'
+    }]
+const listB =[{
+      id: 'a1',
+      name: 'xxx1'
+    },{
+      id: 'a2',
+      name: 'xxx2'
+    },{
+      id: 'a3',
+      name: 'xxx3'
+    }]
+    listA.map(i=&gt;{
+      const targetItem = listB.find(item =&gt;item.id === i.id )
+      i.name = targetItem.name
+      return listA
+    })
+
+    console.log( listA)
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://www.tuziki.com/post-images/1588688590104.png" alt="" loading="lazy"></figure>
 
           
           <p class="next-post">下一篇：
-            <a href="https://www.tuziki.com/about/">
+            <a href="https://www.tuziki.com/dui-shi-jian-ge-shi-de-chu-li-fang-fa/">
               <span class="post-title">
-                关于&rarr;
+                对时间格式的处理方法&rarr;
               </span>
             </a>
           </p>

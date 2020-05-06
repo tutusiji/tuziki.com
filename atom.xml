@@ -1,33 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://github.com/tutusiji/tutusiji.github.io.git</id>
-    <title>Tutu的个人记录</title>
-    <updated>2020-05-05T04:17:14.267Z</updated>
+    <id>https://www.tuziki.com</id>
+    <title>TUTU的个人记录</title>
+    <updated>2020-05-06T15:37:35.813Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://github.com/tutusiji/tutusiji.github.io.git"/>
-    <link rel="self" href="https://github.com/tutusiji/tutusiji.github.io.git/atom.xml"/>
-    <subtitle>2020 乘风破浪 负重前行</subtitle>
-    <logo>https://github.com/tutusiji/tutusiji.github.io.git/images/avatar.png</logo>
-    <icon>https://github.com/tutusiji/tutusiji.github.io.git/favicon.ico</icon>
-    <rights>All rights reserved 2020, Tutu的个人记录</rights>
+    <link rel="alternate" href="https://www.tuziki.com"/>
+    <link rel="self" href="https://www.tuziki.com/atom.xml"/>
+    <subtitle>乘风破浪 负重前行</subtitle>
+    <logo>https://www.tuziki.com/images/avatar.png</logo>
+    <icon>https://www.tuziki.com/favicon.ico</icon>
+    <rights>All rights reserved 2020, TUTU的个人记录</rights>
     <entry>
-        <title type="html"><![CDATA[常用指令集]]></title>
-        <id>https://github.com/tutusiji/tutusiji.github.io.git/chang-yong-zhi-ling-ji/</id>
-        <link href="https://github.com/tutusiji/tutusiji.github.io.git/chang-yong-zhi-ling-ji/">
+        <title type="html"><![CDATA[小项目]]></title>
+        <id>https://www.tuziki.com/project/</id>
+        <link href="https://www.tuziki.com/project/">
         </link>
-        <updated>2020-05-05T03:39:52.000Z</updated>
+        <updated>2020-05-05T14:44:23.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://github.com/tutusiji/tutusiji.github.io.git/hello-gridea/</id>
-        <link href="https://github.com/tutusiji/tutusiji.github.io.git/hello-gridea/">
+        <title type="html"><![CDATA[Nginx 服务器安装HTTPS证书]]></title>
+        <id>https://www.tuziki.com/nginx-fu-wu-qi-an-zhuang-https-zheng-shu/</id>
+        <link href="https://www.tuziki.com/nginx-fu-wu-qi-an-zhuang-https-zheng-shu/">
         </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></content>
+        <updated>2020-05-05T14:37:32.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[mac下使用Charles抓包]]></title>
+        <id>https://www.tuziki.com/mac-xia-shi-yong-charles-zhua-bao/</id>
+        <link href="https://www.tuziki.com/mac-xia-shi-yong-charles-zhua-bao/">
+        </link>
+        <updated>2020-05-05T14:36:58.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[react 高阶组件的用法与一个页面处理多个表单的问题]]></title>
+        <id>https://www.tuziki.com/react-gao-jie-zu-jian-de-yong-fa-yu-yi-ge-ye-mian-chu-li-duo-ge-biao-dan-de-wen-ti/</id>
+        <link href="https://www.tuziki.com/react-gao-jie-zu-jian-de-yong-fa-yu-yi-ge-ye-mian-chu-li-duo-ge-biao-dan-de-wen-ti/">
+        </link>
+        <updated>2020-05-05T14:36:24.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[正则表达式常用校验规则]]></title>
+        <id>https://www.tuziki.com/zheng-ze-biao-da-shi-chang-yong-xiao-yan-gui-ze/</id>
+        <link href="https://www.tuziki.com/zheng-ze-biao-da-shi-chang-yong-xiao-yan-gui-ze/">
+        </link>
+        <updated>2020-05-05T14:35:16.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Linux常用操作]]></title>
+        <id>https://www.tuziki.com/linux-chang-yong-cao-zuo/</id>
+        <link href="https://www.tuziki.com/linux-chang-yong-cao-zuo/">
+        </link>
+        <updated>2020-05-05T14:33:59.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Set() 与 Array() 比较]]></title>
+        <id>https://www.tuziki.com/set-yu-array-bi-jiao/</id>
+        <link href="https://www.tuziki.com/set-yu-array-bi-jiao/">
+        </link>
+        <updated>2020-05-05T14:31:23.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[优化嵌套的条件判断语句]]></title>
+        <id>https://www.tuziki.com/you-hua-qian-tao-de-tiao-jian-pan-duan-yu-ju/</id>
+        <link href="https://www.tuziki.com/you-hua-qian-tao-de-tiao-jian-pan-duan-yu-ju/">
+        </link>
+        <updated>2020-05-05T14:30:36.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[react ant 中处理table列内容太多换行]]></title>
+        <id>https://www.tuziki.com/react-ant-zhong-chu-li-table-lie-nei-rong-tai-duo-huan-xing/</id>
+        <link href="https://www.tuziki.com/react-ant-zhong-chu-li-table-lie-nei-rong-tai-duo-huan-xing/">
+        </link>
+        <updated>2020-05-05T14:30:03.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SEO优化]]></title>
+        <id>https://www.tuziki.com/seo-you-hua/</id>
+        <link href="https://www.tuziki.com/seo-you-hua/">
+        </link>
+        <updated>2020-05-05T14:29:18.000Z</updated>
     </entry>
 </feed>

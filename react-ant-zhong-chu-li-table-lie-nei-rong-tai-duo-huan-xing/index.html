@@ -9,14 +9,14 @@
   <meta name="keywords" content="">
   <meta name="description" content="">
   <meta name="author" content="kveln">
-  <title>常用指令集 | TUTU的个人记录</title>
+  <title>react ant 中处理table列内容太多换行 | TUTU的个人记录</title>
   <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <!-- <link href="https://www.tuziki.com/media/css/bootstrap.min.css" rel="stylesheet"> -->
   <!--  <link href="https://www.tuziki.com/media/css/all.min.css" rel="stylesheet" type="text/css"> -->
   <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-  <link rel="alternate" type="application/rss+xml" title="常用指令集 | TUTU的个人记录 » Feed" href="https://www.tuziki.com/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="react ant 中处理table列内容太多换行 | TUTU的个人记录 » Feed" href="https://www.tuziki.com/atom.xml">
   <link rel="stylesheet"href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
   <link href="https://www.tuziki.com/styles/main.css" rel="stylesheet">
   <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
@@ -25,8 +25,8 @@
   <script>hljs.initHighlightingOnLoad();</script>
   
 
-    <meta property="og:description" content="常用指令集"/>
-    <meta property="og:url" content="https://www.tuziki.com/chang-yong-zhi-ling-ji/"/>
+    <meta property="og:description" content="react ant 中处理table列内容太多换行"/>
+    <meta property="og:url" content="https://www.tuziki.com/react-ant-zhong-chu-li-table-lie-nei-rong-tai-duo-huan-xing/"/>
     <meta property="og:locale" content="zh-CN"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="TUTU的个人记录"/>
@@ -86,11 +86,13 @@
           <div class="post-heading">
           	<span class="tags">
           	 
+            <a href="https://www.tuziki.com/8bhxgbENH/" class="tag">react</a>
+            
         </span>
-            <h1>常用指令集</h1>
+            <h1>react ant 中处理table列内容太多换行</h1>
             <span class="meta">
             	Posted on
-              2019-05-05，1 min read
+              2020-05-05，1 min read
             </span>
           </div>
         </div>
@@ -103,17 +105,30 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-10 mx-auto">
-          <p>Mac管理员权限下发 sudo jamf -removeframework</p>
-<p>快速启动本地服务 python -m SimpleHTTPServer</p>
-<p>npm源切换   nrm ls、nrm test、nrm use taobao、nrm add、nrm del</p>
-<p>chrome解决http自动跳转https问题 chrome://net-internals/#hsts</p>
-<p>腾讯视频文件qlv转mp4文件 <code>copy/b *.tdl 1.mp4</code> 保存为qlv2mp4.bat 文件，在到qlv所在目录执行</p>
+          <pre><code class="language-JavaScript">render: (text, record) =&gt;{
+    let snArray = [];
+    snArray = text.split('+');
+    let br = &lt;br/&gt;;
+    let result = null;
+    if (snArray.length &lt; 2) {
+        return text;
+    }
+    for (let i = 0; i &lt; snArray.length; i++) {
+        if (i === 0) {
+            result = snArray[i];
+        } else {
+            result = (&lt;span&gt;{result}{br}{snArray[i]}&lt;/span&gt;);
+        }
+    }
+    return &lt;div&gt;{result}&lt;/div &gt; ;
+}
+</code></pre>
 
           
           <p class="next-post">下一篇：
-            <a href="https://www.tuziki.com/about/">
+            <a href="https://www.tuziki.com/seo-you-hua/">
               <span class="post-title">
-                关于&rarr;
+                SEO优化&rarr;
               </span>
             </a>
           </p>

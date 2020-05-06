@@ -9,14 +9,14 @@
   <meta name="keywords" content="">
   <meta name="description" content="">
   <meta name="author" content="kveln">
-  <title>常用指令集 | TUTU的个人记录</title>
+  <title>React antdesign 渲染多层级菜单树的递归处理优化 | TUTU的个人记录</title>
   <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <!-- <link href="https://www.tuziki.com/media/css/bootstrap.min.css" rel="stylesheet"> -->
   <!--  <link href="https://www.tuziki.com/media/css/all.min.css" rel="stylesheet" type="text/css"> -->
   <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-  <link rel="alternate" type="application/rss+xml" title="常用指令集 | TUTU的个人记录 » Feed" href="https://www.tuziki.com/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="React antdesign 渲染多层级菜单树的递归处理优化 | TUTU的个人记录 » Feed" href="https://www.tuziki.com/atom.xml">
   <link rel="stylesheet"href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
   <link href="https://www.tuziki.com/styles/main.css" rel="stylesheet">
   <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
@@ -25,8 +25,8 @@
   <script>hljs.initHighlightingOnLoad();</script>
   
 
-    <meta property="og:description" content="常用指令集"/>
-    <meta property="og:url" content="https://www.tuziki.com/chang-yong-zhi-ling-ji/"/>
+    <meta property="og:description" content="React antdesign 渲染多层级菜单树的递归处理优化"/>
+    <meta property="og:url" content="https://www.tuziki.com/react-antdesign-xuan-ran-duo-ceng-ji-cai-dan-shu-de-di-gui-chu-li-you-hua/"/>
     <meta property="og:locale" content="zh-CN"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="TUTU的个人记录"/>
@@ -86,11 +86,15 @@
           <div class="post-heading">
           	<span class="tags">
           	 
+            <a href="https://www.tuziki.com/8bhxgbENH/" class="tag">react</a>
+            
+            <a href="https://www.tuziki.com/3JETxJuGKV/" class="tag">递归</a>
+            
         </span>
-            <h1>常用指令集</h1>
+            <h1>React antdesign 渲染多层级菜单树的递归处理优化</h1>
             <span class="meta">
             	Posted on
-              2019-05-05，1 min read
+              2019-06-05，3 min read
             </span>
           </div>
         </div>
@@ -103,17 +107,114 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-10 mx-auto">
-          <p>Mac管理员权限下发 sudo jamf -removeframework</p>
-<p>快速启动本地服务 python -m SimpleHTTPServer</p>
-<p>npm源切换   nrm ls、nrm test、nrm use taobao、nrm add、nrm del</p>
-<p>chrome解决http自动跳转https问题 chrome://net-internals/#hsts</p>
-<p>腾讯视频文件qlv转mp4文件 <code>copy/b *.tdl 1.mp4</code> 保存为qlv2mp4.bat 文件，在到qlv所在目录执行</p>
+          <p>应用场景在于角色管理菜单树管理，这种多层<code>&lt;tree&gt;</code>杂糅到一起的地方，antdesign 中对<code>&lt;tree&gt;</code>的定义是固定的，只能渲染以这种格式：</p>
+<pre><code class="language-language-javascript">  {
+      title: '0-1',
+      key: '0-1',
+      children: [
+        { title: '0-1-0-0', key: '0-1-0-0' },
+        { title: '0-1-0-1', key: '0-1-0-1' },
+        { title: '0-1-0-2', key: '0-1-0-2' },
+      ],
+    }
+</code></pre>
+<p>且children的层级单一，往往后端返回的接口数据是非常多的层级，并不能立即使用。则需要对每一个层级进行单独的处理，再组合成 <code>&lt;tree&gt;</code> 组件所需要的格式：</p>
+<pre><code class="language-JavaScript">// 渲染树 第一级
+  renderTreeNodes = data =&gt; {
+    if (data) {
+      const render = data.map((item, index) =&gt; {
+        if (item.menuList) {
+          return (
+            &lt;TreeNode title={item.moduleName} key={'0' + item.moduleId} dataRef={item}&gt;
+              {this.renderTreeNodesChildren(item.menuList)}
+            &lt;/TreeNode&gt;
+          );
+        }
+        return &lt;TreeNode {...item} key={'0' + item.moduleId} /&gt;;
+      });
+      return render;
+    }
+  };
+  // 渲染树 第二级
+  renderTreeNodesChildren = data =&gt;
+    data &amp;&amp;
+    data.map((item, index) =&gt; {
+      if (item.childrenMenuList) {
+        return (
+          &lt;TreeNode title={item.menuName} key={item.menuId} dataRef={item}&gt;
+            {item.childrenMenuList.length &gt; 0
+              ? this.renderTreeNodesChildren(item.childrenMenuList)
+              : this.renderTreePermissionList(item.permissionList)}
+          &lt;/TreeNode&gt;
+        );
+      }
+      return &lt;TreeNode {...item} key={item.menuId} /&gt;;
+    });
+  // 渲染树 第三级
+  renderTreePermissionList = data =&gt; {
+    if (data) {
+      // console.log({ data });
+      const render = data.map(item =&gt; {
+        if (item) {
+          return &lt;TreeNode title={item.funcName} key={item.funcId} dataRef={item} /&gt;;
+        }
+        return &lt;TreeNode {...item} key={item.funcId} /&gt;;
+      });
+      return render;
+    }
+  };
+</code></pre>
+<p>而对于 <code>&lt;tree&gt;</code>组件中 标注已选中checkbox时，需要在 componentWillUnmount() 就请求接口数据 <code>this.findList(response.moduleList)</code> 处理完成之后 <code>this.setState({ funcIdList: []})</code>及时更新 <code>&lt;tree&gt;</code>数据：</p>
+<pre><code class="language-JavaScript"> // 筛选递归
+  findList = data =&gt; {
+    // const { allIdList, funcIdList } = this.state;
+    // console.log('findList ', data);
+    for (let i = 0; i &lt; data.length; i++) {
+      const item = data[i];
+      if (item.permissionList &amp;&amp; item.permissionList.length &gt; 0) {
+        item.permissionList.map((item, index) =&gt; {
+          allIdList.push(item.funcId);
+          if (Number(item.grant) === 1) {
+            funcIdList.push(item.funcId);
+          }
+        });
+      } else {
+        if (item.menuId) {
+          allIdList.push(item.menuId);
+        } else {
+          allIdList.push('0' + item.moduleId);
+        }
+      }
+      if (item.menuList &amp;&amp; item.menuList.length &gt; 0) {
+        item.menuList.map((item, index) =&gt; {
+          allIdList.push(item.menuId);
+        });
+        this.findList(item.menuList);
+      }
+      if (item.childrenMenuList &amp;&amp; item.childrenMenuList.length &gt; 0) {
+        item.childrenMenuList.map((item, index) =&gt; {
+          allIdList.push(item.menuId);
+        });
+        this.findList(item.childrenMenuList);
+      }
+    }
+    const allIdDone = Array.from(new Set(allIdList));
+
+    this.setState({
+      checkedKeys: funcIdList,
+      expandedKeys: allIdDone,
+      allIdList: allIdDone
+    });
+    // console.log('allIdList', allIdDone);
+    // console.log('funcIdList', funcIdList);
+  };
+</code></pre>
 
           
           <p class="next-post">下一篇：
-            <a href="https://www.tuziki.com/about/">
+            <a href="https://www.tuziki.com/chang-yong-zhi-ling-ji/">
               <span class="post-title">
-                关于&rarr;
+                常用指令集&rarr;
               </span>
             </a>
           </p>
